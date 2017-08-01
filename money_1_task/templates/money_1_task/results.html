@@ -1,0 +1,37 @@
+{% extends "global/BaseMotherhood.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h2 class="panel-sub-heading">
+        
+    </h2>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+
+
+          <h4>Your final score is {{player.score}} points.</h4>
+          <h4>Your experimenter owes you {{player.score}} AED.</h4>
+          <h4>Thank you for helping science.</h4>
+
+
+
+
+    
+</div>
+
+    {% if debug %}
+      In debug mode only, 
+      {% next_button %}<br><br><br>
+    {% endif %}
+
+{% endblock %}

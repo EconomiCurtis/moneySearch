@@ -1,0 +1,40 @@
+
+
+{% extends "otree/FormPage.html" %}
+{% load staticfiles otree_tags %}
+
+
+
+
+{% block global_styles  %}
+<style>
+h2 {
+	color:#999999;
+}
+p {
+	color:#999999;
+}
+hr {
+    border-color: #383838;
+}
+body {
+    background-color: #383838;
+    font-color:#999999;
+}
+
+
+.ytplayer {
+	pointer-events: none;
+    width:1500px;
+    margin-left: -300px;
+    margin-right: -300px;
+/*width is 900px, so margin left should be (-1 * (width - 900)/2)*/
+    height:844px;
+    /*standard youtube ratio 16:9, so take width * 9/16 for height;*/
+
+	}
+</style>
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}

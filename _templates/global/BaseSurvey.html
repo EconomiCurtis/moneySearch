@@ -1,0 +1,27 @@
+
+
+{% extends "otree/FormPage.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block global_styles  %}
+
+<style>
+input[type=submit] {
+    float: right;
+	padding:10px 35px; 
+	border:20;
+    cursor:pointer;
+    -webkit-border-radius: 50px;
+    border-radius: 50px; 
+    font-size:120%;
+    -webkit-user-select: none;
+}
+.ytplayer {
+	pointer-events: none;
+	}
+</style>
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}

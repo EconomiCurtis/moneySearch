@@ -1,0 +1,50 @@
+{% extends "global/display.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Please review carefully
+{% endblock %}
+
+{% block content %}
+
+    <p>
+         Gandalf Nods Head Dance Party (extended edition)
+         <br>
+         <br>
+    </p>
+
+    <div>
+    <iframe class="ytplayer" id="ytplayer" type="text/html" width="900" height="506" 
+   src="https://www.youtube.com/embed/T9RFb8xXZlk?autoplay=1&rel=0&controls=0&showinfo=0&loop=1&hd=1&modestbranding=1&enablejsapi=1&playerapiid=ytplayer"
+ 		frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- {% next_button %} -->
+
+    <script>
+
+    var showButton = document.getElementsByClassName("btn btn-primary btn-large btn-primary next-button")[0];
+    var counter = 3170;//25;
+    var newElement = document.createElement("p");
+    newElement.innerHTML = "Please wait for " + counter + " seconds.";
+    var interval;
+
+    showButton.parentNode.replaceChild(newElement, showButton);
+
+    interval = setInterval(function() {
+        counter--;
+        if(counter < 0) {
+            newElement.parentNode.replaceChild(showButton, newElement);
+            clearInterval(interval);
+        } else {
+            newElement.innerHTML = "Please wait for the next " + Math.floor(counter / 60).toString() + " minutes " + (counter % 60).toString() + " seconds.";
+        }
+    }, 1000);
+
+    </script>
+
+{% endblock %}
+
+{% block content_at_bottom_of_body %}
+
+{% endblock %}

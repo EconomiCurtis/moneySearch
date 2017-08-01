@@ -1,0 +1,101 @@
+{% extends "global/BaseMotherhood.html" %}
+{% load staticfiles %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+    Decision - Round {{subsession.round_number}}
+
+{% endblock %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+    {% if subsession.round_number > 1 %}
+    <div class="alert alert-info">
+        <h4>{{tradetext}}</h3>
+    </div>
+
+    <div class="alert alert-success">
+        <h4>{{consumptiontext}}</h3>
+    </div>
+
+    <div class="alert alert-success">
+        <h4>{{itemcosttext}}</h3>
+        <h4>Holding an item between rounds earn points..</h3>
+        <ul>
+            <li><h5>Holding item 1 between rounds earns 9 points</li>
+            <li><h5>Holeding item 2 between rounds earns 4 points</li>
+            <li><h5>Holding item 3 between rounds earns 1 point.</li>
+        </ul>
+    </div>
+
+    <div class="alert alert-warning">
+        <h4>{{productiontext}}</h3>
+    </div>
+
+    <div class="instructions well well-lg">
+        <h4>{{scorebox}}</h3>
+    </div>
+
+
+    {% else %}
+
+
+    <div class="alert alert-success">
+        <h4>Holding an item between rounds earn points..</h4>
+        <ul>
+            <li><h5>Holding item 1 between rounds earns 9 points</li>
+            <li><h5>Holeding item 2 between rounds earns 4 points</li>
+            <li><h5>Holding item 3 between rounds earns 1 point.</li>
+        </ul>
+    </div>
+
+    {% endif %}
+
+
+
+<div class="instructions well well-lg">
+<h3>Marketplace</h3>
+
+<img src="{{ STATIC_URL }}traders.jpg" style="width:880px;"/>
+
+
+<hr>
+    <!-- <h3><u>You</u> are a <font color={{own_col}}> {{own_col}} {{own_animal}}</font>.</h3> -->
+    <h4>Your have {{player.score}} points</h2>
+
+    <h4>You have good: {{player.inventory}}</h2>
+    <h4>You can only consume good {{consump_good}}, earning {{session.config.u}} when you get it.</h3>
+
+
+
+
+    <hr>
+
+    <!-- <h3><u>Your counterparty</u> is a <font color={{cp_col}}> {{cp_col}} {{cp_animal}}</font>.</h3> -->
+    <h4>Your counterparty has good: {{participant.vars.pairwise_matchings.cp_GoodInInv}}</h3>
+    <h4>Your counterparty consumes: {{cp_consump_good}}, earning {{session.config.u}} when they get it.</h3>
+
+    <hr>
+
+    <hr>
+    <h4><b>Do you wish to do this trade?</b></h3>
+    <div>
+        <button name="trade" value="True" class="btn btn-primary btn-large" style="font-size:100%;">Exchange my good {{player.inventory}} and receive good {{participant.vars.pairwise_matchings.cp_GoodInInv}}</button>
+        <br>
+        <br>
+        <button name="trade" value="False" class="btn btn-primary btn-large" style="font-size:100%;">Don't Trade</button>
+    </div>
+</div>
+
+<!--     {% next_button %}<br><br><br> -->
+
+
+<script type="text/javascript">
+document.getElementById('id_subject_email').focus()
+</script>
+
+{% endblock %}
+

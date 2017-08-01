@@ -1,0 +1,52 @@
+{% extends "global/BaseMotherhood.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h2 class="panel-sub-heading">
+        
+    </h2>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+
+
+
+    <p>
+      You are now taking part in an experiment.  You will receive a transport and subsistence allowance which will depend on decisions made in the experiment, with a minimum allowance of 30 AED.
+      It is therefore important that you read the instructions carefully as they explain how your decisions will affect the allowance you receive at the end of today's session. 
+    </p>
+    <p>
+          You cannot use any electronic devices or communicate with others throughout the experiment. Violation of this rule will disqualify you from payment.
+    </p>
+
+
+    <p>
+    ...
+      <br>
+    </p>
+<!--     <p>
+      Click next if you are ready to move on.
+      <br>
+      <br>
+    </p> -->
+
+
+
+    
+</div>
+
+    {% if debug %}
+      In debug mode only, 
+      {% next_button %}<br><br><br>
+    {% endif %}
+
+{% endblock %}
